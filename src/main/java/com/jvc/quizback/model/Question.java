@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -36,4 +37,9 @@ public class Question {
 	@JoinColumn(name = FIELD_TAG)
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Tag tag;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy=Answer.FIELD_QUESTION)
+	private List<Answer> answer;
+	
+	
 }
