@@ -35,7 +35,7 @@ public class Course {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy=Result.FIELD_COURSE)
 	private List<Result> result;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy=Questionary.FIELD_QUESTIONARY)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy=Questionary.FIELD_COURSE)
 	private List<Questionary> questionary;
 	
 	@ManyToMany

@@ -19,7 +19,7 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Questionary {
-	public static final String FIELD_QUESTIONARY = "course";
+	public static final String FIELD_COURSE = "course";
 	
 	@Id
 	@GeneratedValue
@@ -28,7 +28,7 @@ public class Questionary {
 	@Column(nullable = false)
 	String name;
 	
-	@JoinColumn(name = FIELD_QUESTIONARY)
+	@JoinColumn(name = FIELD_COURSE)
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Course course;
 	
