@@ -35,6 +35,9 @@ public class Course {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy=Result.FIELD_COURSE)
 	private List<Result> result;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy=Questionary.FIELD_QUESTIONARY)
+	private List<Questionary> questionary;
+	
 	@ManyToMany
 	@JoinTable (name="userCourse", joinColumns= {@JoinColumn(name="idCourse")},
 			   inverseJoinColumns= {@JoinColumn(name="idUser")})
