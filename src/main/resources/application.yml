@@ -1,0 +1,19 @@
+logging:
+  level.org.springframework: INFO
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/quiz?autoReconnect=true&useSSL=false
+    username: jose
+    password: c783350
+---
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/quiz?autoReconnect=true&useSSL=false
+    username: jose
+    password: c783350
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL5Dialect
