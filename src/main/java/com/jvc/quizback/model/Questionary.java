@@ -1,11 +1,15 @@
 package com.jvc.quizback.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import lombok.Getter;
@@ -19,7 +23,7 @@ public class Questionary {
 	
 	@Id
 	@GeneratedValue
-	private Integer idCourse;
+	private Integer idQuestionary;
 	
 	@Column(nullable = false)
 	String name;
@@ -27,4 +31,14 @@ public class Questionary {
 	@JoinColumn(name = FIELD_QUESTIONARY)
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Course course;
+	
+	@ManyToMany
+	@JoinTable (name="tagQuestionary", joinColumns= {@JoinColumn(name="idQuestionary")},
+			   inverseJoinColumns= {@JoinColumn(name="idTag")})
+	private List<Tag> tag;
+	
+	@ManyToMany
+	@JoinTable (name="questionQuestionary", joinColumns= {@JoinColumn(name="idQuestionary")},
+			   inverseJoinColumns= {@JoinColumn(name="idQuestion")})
+	private List<Question> question;
 }
