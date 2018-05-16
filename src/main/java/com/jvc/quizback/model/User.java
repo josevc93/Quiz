@@ -29,7 +29,4 @@ public class User {
 
 	private String password;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = Result.FIELD_USER)
-	private List<Result> result;
-
 }
