@@ -41,5 +41,6 @@ public class Question {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy=Answer.FIELD_QUESTION)
 	private List<Answer> answer;
 	
-	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy=Answer.FIELD_QUESTION)
+	private List<Difficulty> difficulty;
 }
