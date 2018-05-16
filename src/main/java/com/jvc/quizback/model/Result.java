@@ -2,6 +2,7 @@ package com.jvc.quizback.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,10 +24,13 @@ public class Result {
 
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Integer idResult;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
+	
+	@Column(nullable = false)
+	private Integer calification;
 
 	@JoinColumn(name = FIELD_COURSE)
 	@ManyToOne(fetch = FetchType.LAZY)
